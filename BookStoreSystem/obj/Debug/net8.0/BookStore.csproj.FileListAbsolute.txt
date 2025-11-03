@@ -141,3 +141,4 @@ C:\Users\ms.bithi\source\repos\BookStore\BookStoreSystem\obj\Debug\net8.0\refint
 C:\Users\ms.bithi\source\repos\BookStore\BookStoreSystem\obj\Debug\net8.0\BookStore.pdb
 C:\Users\ms.bithi\source\repos\BookStore\BookStoreSystem\obj\Debug\net8.0\BookStore.genruntimeconfig.cache
 C:\Users\ms.bithi\source\repos\BookStore\BookStoreSystem\obj\Debug\net8.0\ref\BookStore.dll
+C:\Users\ms.bithi\source\repos\BookStore\BookStoreSystem\obj\Debug\net8.0\BookStore.sourcelink.json

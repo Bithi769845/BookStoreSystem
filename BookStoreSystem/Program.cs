@@ -1,6 +1,12 @@
 using BookStore.Data;
+using BookStore.Helpers;
+using BookStore.Models.Identity;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +19,41 @@ builder.Services.AddSwaggerGen();
 
 //Add DbContext
 builder.Services.AddDbContext<ApplDbContext>(Options => Options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+//Add Identity
+builder.Services.AddIdentity<ApplicationUser, ApplicationRole>()
+    .AddEntityFrameworkStores<ApplDbContext>()
+    .AddDefaultTokenProviders();
+
+//JWT Authentication
+var jwtSettings = builder.Configuration.GetSection("JwtSettings");
+builder.Services.AddAuthentication(Options =>
+{
+
+    Options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    Options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+    .AddJwtBearer(Options =>
+    {
+        Options.RequireHttpsMetadata = false;
+        Options.SaveToken = true;
+        Options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true,
+            ValidIssuer = jwtSettings["Issuer"],
+            ValidAudience = jwtSettings["Audience"],
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSettings["Key"]))
+
+        };
+    });
+
+builder.Services.AddAuthentication();
+
+//Add JwtTokenGenerator
+builder.Services.AddScoped<JwtTokenGenerator>();
 
 var app = builder.Build();
 
