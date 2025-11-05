@@ -37,7 +37,7 @@ namespace BookStore.Helpers
                 signingCredentials:creds
 
                 );
-            return new JwtSecurityTokenHandler().WriteToken(token);
+            return new JwtSecurityTokenHandler().WriteToken(token); //This converts the token object into a Base64 string
         }
     }
 }
