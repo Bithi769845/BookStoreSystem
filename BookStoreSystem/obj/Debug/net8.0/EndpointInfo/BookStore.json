@@ -485,6 +485,10 @@
   "components": {
     "schemas": {
       "Author": {
+        "required": [
+          "biography",
+          "name"
+        ],
         "type": "object",
         "properties": {
           "authorId": {
@@ -492,12 +496,14 @@
             "format": "int32"
           },
           "name": {
-            "type": "string",
-            "nullable": true
+            "maxLength": 100,
+            "minLength": 2,
+            "type": "string"
           },
           "biography": {
-            "type": "string",
-            "nullable": true
+            "maxLength": 100,
+            "minLength": 20,
+            "type": "string"
           },
           "books": {
             "type": "array",
@@ -510,6 +516,11 @@
         "additionalProperties": false
       },
       "Book": {
+        "required": [
+          "authorId",
+          "categoryId",
+          "title"
+        ],
         "type": "object",
         "properties": {
           "bookId": {
@@ -517,8 +528,9 @@
             "format": "int32"
           },
           "title": {
-            "type": "string",
-            "nullable": true
+            "maxLength": 100,
+            "minLength": 2,
+            "type": "string"
           },
           "authorId": {
             "type": "integer",
@@ -539,6 +551,8 @@
             "format": "date-time"
           },
           "price": {
+            "maximum": 10000,
+            "minimum": 0.01,
             "type": "number",
             "format": "double"
           }
@@ -546,6 +560,10 @@
         "additionalProperties": false
       },
       "Category": {
+        "required": [
+          "description",
+          "name"
+        ],
         "type": "object",
         "properties": {
           "categoryId": {
@@ -553,12 +571,14 @@
             "format": "int32"
           },
           "name": {
-            "type": "string",
-            "nullable": true
+            "maxLength": 100,
+            "minLength": 5,
+            "type": "string"
           },
           "description": {
-            "type": "string",
-            "nullable": true
+            "maxLength": 100,
+            "minLength": 20,
+            "type": "string"
           },
           "books": {
             "type": "array",

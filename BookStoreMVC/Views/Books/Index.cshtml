@@ -1,0 +1,40 @@
+﻿@model List<BookStore.Models.Book>
+
+<h2>Books</h2>
+<a asp-action="Create" class="btn btn-primary mb-3">Add Book</a>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Price</th>
+            <th>Author</th>
+            <th>Category</th>
+            <th>Published Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null && Model.Any())
+{
+        @foreach (var book in Model)
+        {
+            <tr>
+                <td>@book.Title</td>
+                <td>@book.Price</td>
+                <td>@book.AuthorId</td>
+                <td>@book.CategoryId</td>
+                <td>@book.PublishedDate</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@book.BookId" class="btn btn-sm btn-warning">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@book.BookId" class="btn btn-sm btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+}
+        else
+        {
+            <tr><td colspan="5">No books available.</td></tr>
+        }
+    </tbody>
+</table>
