@@ -22,7 +22,14 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<ApplDbContext>(Options => Options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 //Add Identity
-builder.Services.AddIdentity<ApplicationUser, ApplicationRole>()
+builder.Services.AddIdentity<ApplicationUser, ApplicationRole>(options =>
+{
+    options.Password.RequireDigit = true;
+    options.Password.RequiredLength = 6;
+    options.Password.RequireNonAlphanumeric = true; // special char
+    options.Password.RequireUppercase = true;
+    options.Password.RequireLowercase = true;
+})
     .AddEntityFrameworkStores<ApplDbContext>()
     .AddDefaultTokenProviders();
 

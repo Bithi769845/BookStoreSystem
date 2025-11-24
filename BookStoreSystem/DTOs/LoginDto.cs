@@ -1,8 +1,13 @@
-﻿namespace BookStore.DTOs
+﻿using Newtonsoft.Json;
+
+namespace BookStore.DTOs
 {
     public class LoginDto
     {
-        public string Email { get; set; } = string.Empty;
-        public string Password { get; set; } = string.Empty;
+        [JsonProperty("email")]
+        public string Email { get; set; }
+
+        [JsonProperty("password")]
+        public string Password { get; set; }
     }
 }

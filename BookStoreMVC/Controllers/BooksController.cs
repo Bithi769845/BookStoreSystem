@@ -1,17 +1,30 @@
 ﻿using BookStore.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Net.Http.Headers;
 using System.Net.Http.Json;
 
 public class BooksController : Controller
 {
     private readonly IHttpClientFactory _httpClientFactory;
 
+
     public BooksController(IHttpClientFactory httpClientFactory)
     {
         _httpClientFactory = httpClientFactory;
     }
 
-    private HttpClient GetClient() => _httpClientFactory.CreateClient("BookStoreAPI");
+    private HttpClient GetClient()
+    {
+        var client = _httpClientFactory.CreateClient("BookStore");
+        var token = HttpContext.Session.GetString("JWToken");
+
+        if (!string.IsNullOrEmpty(token))
+            client.DefaultRequestHeaders.Authorization =
+                new AuthenticationHeaderValue("Bearer", token);
+
+        return client;
+    }
+
 
     private async Task PopulateViewBags()
     {

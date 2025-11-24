@@ -1,6 +1,7 @@
 ﻿using BookStore.DTOs;
 using BookStore.Helpers;
 using BookStore.Models.Identity;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 

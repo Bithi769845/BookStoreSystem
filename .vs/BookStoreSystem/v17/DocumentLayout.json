@@ -3,6 +3,50 @@
   "WorkspaceRootPath": "C:\\Users\\ms.bithi\\source\\repos\\BookStore\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{96A9F9DE-4612-4682-9D82-07483B5B33B1}|BookStoreMVC\\BookStoreMVC.csproj|c:\\users\\ms.bithi\\source\\repos\\bookstore\\bookstoremvc\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{96A9F9DE-4612-4682-9D82-07483B5B33B1}|BookStoreMVC\\BookStoreMVC.csproj|solutionrelative:bookstoremvc\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{96A9F9DE-4612-4682-9D82-07483B5B33B1}|BookStoreMVC\\BookStoreMVC.csproj|c:\\users\\ms.bithi\\source\\repos\\bookstore\\bookstoremvc\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{96A9F9DE-4612-4682-9D82-07483B5B33B1}|BookStoreMVC\\BookStoreMVC.csproj|solutionrelative:bookstoremvc\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{96A9F9DE-4612-4682-9D82-07483B5B33B1}|BookStoreMVC\\BookStoreMVC.csproj|c:\\users\\ms.bithi\\source\\repos\\bookstore\\bookstoremvc\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{96A9F9DE-4612-4682-9D82-07483B5B33B1}|BookStoreMVC\\BookStoreMVC.csproj|solutionrelative:bookstoremvc\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{824CB0D0-22CD-4327-AA1C-3CEC597471DC}|BookStoreSystem\\BookStore.csproj|c:\\users\\ms.bithi\\source\\repos\\bookstore\\bookstoresystem\\controllers\\authorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{824CB0D0-22CD-4327-AA1C-3CEC597471DC}|BookStoreSystem\\BookStore.csproj|solutionrelative:bookstoresystem\\controllers\\authorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{96A9F9DE-4612-4682-9D82-07483B5B33B1}|BookStoreMVC\\BookStoreMVC.csproj|c:\\users\\ms.bithi\\source\\repos\\bookstore\\bookstoremvc\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{96A9F9DE-4612-4682-9D82-07483B5B33B1}|BookStoreMVC\\BookStoreMVC.csproj|solutionrelative:bookstoremvc\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{96A9F9DE-4612-4682-9D82-07483B5B33B1}|BookStoreMVC\\BookStoreMVC.csproj|c:\\users\\ms.bithi\\source\\repos\\bookstore\\bookstoremvc\\models\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{96A9F9DE-4612-4682-9D82-07483B5B33B1}|BookStoreMVC\\BookStoreMVC.csproj|solutionrelative:bookstoremvc\\models\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{96A9F9DE-4612-4682-9D82-07483B5B33B1}|BookStoreMVC\\BookStoreMVC.csproj|c:\\users\\ms.bithi\\source\\repos\\bookstore\\bookstoremvc\\models\\registrationviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{96A9F9DE-4612-4682-9D82-07483B5B33B1}|BookStoreMVC\\BookStoreMVC.csproj|solutionrelative:bookstoremvc\\models\\registrationviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{96A9F9DE-4612-4682-9D82-07483B5B33B1}|BookStoreMVC\\BookStoreMVC.csproj|c:\\users\\ms.bithi\\source\\repos\\bookstore\\bookstoremvc\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{96A9F9DE-4612-4682-9D82-07483B5B33B1}|BookStoreMVC\\BookStoreMVC.csproj|solutionrelative:bookstoremvc\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{96A9F9DE-4612-4682-9D82-07483B5B33B1}|BookStoreMVC\\BookStoreMVC.csproj|c:\\users\\ms.bithi\\source\\repos\\bookstore\\bookstoremvc\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{96A9F9DE-4612-4682-9D82-07483B5B33B1}|BookStoreMVC\\BookStoreMVC.csproj|solutionrelative:bookstoremvc\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{824CB0D0-22CD-4327-AA1C-3CEC597471DC}|BookStoreSystem\\BookStore.csproj|c:\\users\\ms.bithi\\source\\repos\\bookstore\\bookstoresystem\\dtos\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{824CB0D0-22CD-4327-AA1C-3CEC597471DC}|BookStoreSystem\\BookStore.csproj|solutionrelative:bookstoresystem\\dtos\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{824CB0D0-22CD-4327-AA1C-3CEC597471DC}|BookStoreSystem\\BookStore.csproj|c:\\users\\ms.bithi\\source\\repos\\bookstore\\bookstoresystem\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{824CB0D0-22CD-4327-AA1C-3CEC597471DC}|BookStoreSystem\\BookStore.csproj|solutionrelative:bookstoresystem\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{96A9F9DE-4612-4682-9D82-07483B5B33B1}|BookStoreMVC\\BookStoreMVC.csproj|c:\\users\\ms.bithi\\source\\repos\\bookstore\\bookstoremvc\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{96A9F9DE-4612-4682-9D82-07483B5B33B1}|BookStoreMVC\\BookStoreMVC.csproj|solutionrelative:bookstoremvc\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -11,12 +55,44 @@
       "RelativeMoniker": "D:0:0:{96A9F9DE-4612-4682-9D82-07483B5B33B1}|BookStoreMVC\\BookStoreMVC.csproj|solutionrelative:bookstoremvc\\views\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{96A9F9DE-4612-4682-9D82-07483B5B33B1}|BookStoreMVC\\BookStoreMVC.csproj|c:\\users\\ms.bithi\\source\\repos\\bookstore\\bookstoremvc\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{96A9F9DE-4612-4682-9D82-07483B5B33B1}|BookStoreMVC\\BookStoreMVC.csproj|solutionrelative:bookstoremvc\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{96A9F9DE-4612-4682-9D82-07483B5B33B1}|BookStoreMVC\\BookStoreMVC.csproj|c:\\users\\ms.bithi\\source\\repos\\bookstore\\bookstoremvc\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{96A9F9DE-4612-4682-9D82-07483B5B33B1}|BookStoreMVC\\BookStoreMVC.csproj|solutionrelative:bookstoremvc\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{96A9F9DE-4612-4682-9D82-07483B5B33B1}|BookStoreMVC\\BookStoreMVC.csproj|c:\\users\\ms.bithi\\source\\repos\\bookstore\\bookstoremvc\\models\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{96A9F9DE-4612-4682-9D82-07483B5B33B1}|BookStoreMVC\\BookStoreMVC.csproj|solutionrelative:bookstoremvc\\models\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{824CB0D0-22CD-4327-AA1C-3CEC597471DC}|BookStoreSystem\\BookStore.csproj|c:\\users\\ms.bithi\\source\\repos\\bookstore\\bookstoresystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{824CB0D0-22CD-4327-AA1C-3CEC597471DC}|BookStoreSystem\\BookStore.csproj|solutionrelative:bookstoresystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{824CB0D0-22CD-4327-AA1C-3CEC597471DC}|BookStoreSystem\\BookStore.csproj|c:\\users\\ms.bithi\\source\\repos\\bookstore\\bookstoresystem\\data\\appldbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{824CB0D0-22CD-4327-AA1C-3CEC597471DC}|BookStoreSystem\\BookStore.csproj|solutionrelative:bookstoresystem\\data\\appldbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{96A9F9DE-4612-4682-9D82-07483B5B33B1}|BookStoreMVC\\BookStoreMVC.csproj|c:\\users\\ms.bithi\\source\\repos\\bookstore\\bookstoremvc\\controllers\\authorscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{96A9F9DE-4612-4682-9D82-07483B5B33B1}|BookStoreMVC\\BookStoreMVC.csproj|solutionrelative:bookstoremvc\\controllers\\authorscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{824CB0D0-22CD-4327-AA1C-3CEC597471DC}|BookStoreSystem\\BookStore.csproj|c:\\users\\ms.bithi\\source\\repos\\bookstore\\bookstoresystem\\dtos\\registerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{824CB0D0-22CD-4327-AA1C-3CEC597471DC}|BookStoreSystem\\BookStore.csproj|solutionrelative:bookstoresystem\\dtos\\registerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{96A9F9DE-4612-4682-9D82-07483B5B33B1}|BookStoreMVC\\BookStoreMVC.csproj|c:\\users\\ms.bithi\\source\\repos\\bookstore\\bookstoremvc\\controllers\\bookscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{96A9F9DE-4612-4682-9D82-07483B5B33B1}|BookStoreMVC\\BookStoreMVC.csproj|solutionrelative:bookstoremvc\\controllers\\bookscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{824CB0D0-22CD-4327-AA1C-3CEC597471DC}|BookStoreSystem\\BookStore.csproj|c:\\users\\ms.bithi\\source\\repos\\bookstore\\bookstoresystem\\controllers\\bookcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{824CB0D0-22CD-4327-AA1C-3CEC597471DC}|BookStoreSystem\\BookStore.csproj|solutionrelative:bookstoresystem\\controllers\\bookcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{824CB0D0-22CD-4327-AA1C-3CEC597471DC}|BookStoreSystem\\BookStore.csproj|c:\\users\\ms.bithi\\source\\repos\\bookstore\\bookstoresystem\\models\\identity\\applicationrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{824CB0D0-22CD-4327-AA1C-3CEC597471DC}|BookStoreSystem\\BookStore.csproj|solutionrelative:bookstoresystem\\models\\identity\\applicationrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{824CB0D0-22CD-4327-AA1C-3CEC597471DC}|BookStoreSystem\\BookStore.csproj|c:\\users\\ms.bithi\\source\\repos\\bookstore\\bookstoresystem\\models\\identity\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{824CB0D0-22CD-4327-AA1C-3CEC597471DC}|BookStoreSystem\\BookStore.csproj|solutionrelative:bookstoresystem\\models\\identity\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{96A9F9DE-4612-4682-9D82-07483B5B33B1}|BookStoreMVC\\BookStoreMVC.csproj|c:\\users\\ms.bithi\\source\\repos\\bookstore\\bookstoremvc\\controllers\\categoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{96A9F9DE-4612-4682-9D82-07483B5B33B1}|BookStoreMVC\\BookStoreMVC.csproj|solutionrelative:bookstoremvc\\controllers\\categoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{824CB0D0-22CD-4327-AA1C-3CEC597471DC}|BookStoreSystem\\BookStore.csproj|c:\\users\\ms.bithi\\source\\repos\\bookstore\\bookstoresystem\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -30,30 +106,274 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "jquery.validate.js",
+              "DocumentMoniker": "C:\\Users\\ms.bithi\\source\\repos\\BookStore\\BookStoreMVC\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+              "RelativeDocumentMoniker": "BookStoreMVC\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+              "ToolTip": "C:\\Users\\ms.bithi\\source\\repos\\BookStore\\BookStoreMVC\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+              "RelativeToolTip": "BookStoreMVC\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-11-24T07:27:36.519Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "additional-methods.js",
+              "DocumentMoniker": "C:\\Users\\ms.bithi\\source\\repos\\BookStore\\BookStoreMVC\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+              "RelativeDocumentMoniker": "BookStoreMVC\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+              "ToolTip": "C:\\Users\\ms.bithi\\source\\repos\\BookStore\\BookStoreMVC\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+              "RelativeToolTip": "BookStoreMVC\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+              "ViewState": "AgIAADIAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-11-24T07:27:40.689Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ErrorViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\ms.bithi\\source\\repos\\BookStore\\BookStoreMVC\\Models\\ErrorViewModel.cs",
+              "RelativeDocumentMoniker": "BookStoreMVC\\Models\\ErrorViewModel.cs",
+              "ToolTip": "C:\\Users\\ms.bithi\\source\\repos\\BookStore\\BookStoreMVC\\Models\\ErrorViewModel.cs",
+              "RelativeToolTip": "BookStoreMVC\\Models\\ErrorViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-24T07:22:26.562Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "LoginDto.cs",
+              "DocumentMoniker": "C:\\Users\\ms.bithi\\source\\repos\\BookStore\\BookStoreSystem\\DTOs\\LoginDto.cs",
+              "RelativeDocumentMoniker": "BookStoreSystem\\DTOs\\LoginDto.cs",
+              "ToolTip": "C:\\Users\\ms.bithi\\source\\repos\\BookStore\\BookStoreSystem\\DTOs\\LoginDto.cs",
+              "RelativeToolTip": "BookStoreSystem\\DTOs\\LoginDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-24T07:17:10.08Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\ms.bithi\\source\\repos\\BookStore\\BookStoreSystem\\Program.cs",
+              "RelativeDocumentMoniker": "BookStoreSystem\\Program.cs",
+              "ToolTip": "C:\\Users\\ms.bithi\\source\\repos\\BookStore\\BookStoreSystem\\Program.cs",
+              "RelativeToolTip": "BookStoreSystem\\Program.cs",
+              "ViewState": "AgIAAEgAAAAAAAAAAADwv3EAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-24T06:32:54.562Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "ApplDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\ms.bithi\\source\\repos\\BookStore\\BookStoreSystem\\Data\\ApplDbContext.cs",
+              "RelativeDocumentMoniker": "BookStoreSystem\\Data\\ApplDbContext.cs",
+              "ToolTip": "C:\\Users\\ms.bithi\\source\\repos\\BookStore\\BookStoreSystem\\Data\\ApplDbContext.cs",
+              "RelativeToolTip": "BookStoreSystem\\Data\\ApplDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-24T06:32:27.688Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "RegisterDto.cs",
+              "DocumentMoniker": "C:\\Users\\ms.bithi\\source\\repos\\BookStore\\BookStoreSystem\\DTOs\\RegisterDto.cs",
+              "RelativeDocumentMoniker": "BookStoreSystem\\DTOs\\RegisterDto.cs",
+              "ToolTip": "C:\\Users\\ms.bithi\\source\\repos\\BookStore\\BookStoreSystem\\DTOs\\RegisterDto.cs",
+              "RelativeToolTip": "BookStoreSystem\\DTOs\\RegisterDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-24T06:06:46.094Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "ApplicationRole.cs",
+              "DocumentMoniker": "C:\\Users\\ms.bithi\\source\\repos\\BookStore\\BookStoreSystem\\Models\\Identity\\ApplicationRole.cs",
+              "RelativeDocumentMoniker": "BookStoreSystem\\Models\\Identity\\ApplicationRole.cs",
+              "ToolTip": "C:\\Users\\ms.bithi\\source\\repos\\BookStore\\BookStoreSystem\\Models\\Identity\\ApplicationRole.cs",
+              "RelativeToolTip": "BookStoreSystem\\Models\\Identity\\ApplicationRole.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-24T05:24:41.897Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "ApplicationUser.cs",
+              "DocumentMoniker": "C:\\Users\\ms.bithi\\source\\repos\\BookStore\\BookStoreSystem\\Models\\Identity\\ApplicationUser.cs",
+              "RelativeDocumentMoniker": "BookStoreSystem\\Models\\Identity\\ApplicationUser.cs",
+              "ToolTip": "C:\\Users\\ms.bithi\\source\\repos\\BookStore\\BookStoreSystem\\Models\\Identity\\ApplicationUser.cs",
+              "RelativeToolTip": "BookStoreSystem\\Models\\Identity\\ApplicationUser.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-24T05:24:40.384Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Register.cshtml",
+              "DocumentMoniker": "C:\\Users\\ms.bithi\\source\\repos\\BookStore\\BookStoreMVC\\Views\\Account\\Register.cshtml",
+              "RelativeDocumentMoniker": "BookStoreMVC\\Views\\Account\\Register.cshtml",
+              "ToolTip": "C:\\Users\\ms.bithi\\source\\repos\\BookStore\\BookStoreMVC\\Views\\Account\\Register.cshtml",
+              "RelativeToolTip": "BookStoreMVC\\Views\\Account\\Register.cshtml",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAwwD8AAABVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-24T05:19:50.019Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "CategoriesController.cs",
+              "DocumentMoniker": "C:\\Users\\ms.bithi\\source\\repos\\BookStore\\BookStoreMVC\\Controllers\\CategoriesController.cs",
+              "RelativeDocumentMoniker": "BookStoreMVC\\Controllers\\CategoriesController.cs",
+              "ToolTip": "C:\\Users\\ms.bithi\\source\\repos\\BookStore\\BookStoreMVC\\Controllers\\CategoriesController.cs",
+              "RelativeToolTip": "BookStoreMVC\\Controllers\\CategoriesController.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAQwBsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-24T05:17:13.172Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "AuthorsController.cs",
+              "DocumentMoniker": "C:\\Users\\ms.bithi\\source\\repos\\BookStore\\BookStoreMVC\\Controllers\\AuthorsController.cs",
+              "RelativeDocumentMoniker": "BookStoreMVC\\Controllers\\AuthorsController.cs",
+              "ToolTip": "C:\\Users\\ms.bithi\\source\\repos\\BookStore\\BookStoreMVC\\Controllers\\AuthorsController.cs",
+              "RelativeToolTip": "BookStoreMVC\\Controllers\\AuthorsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-24T05:17:04.501Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "RegistrationViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\ms.bithi\\source\\repos\\BookStore\\BookStoreMVC\\Models\\RegistrationViewModel.cs",
+              "RelativeDocumentMoniker": "BookStoreMVC\\Models\\RegistrationViewModel.cs",
+              "ToolTip": "C:\\Users\\ms.bithi\\source\\repos\\BookStore\\BookStoreMVC\\Models\\RegistrationViewModel.cs",
+              "RelativeToolTip": "BookStoreMVC\\Models\\RegistrationViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-24T05:14:27.737Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\ms.bithi\\source\\repos\\BookStore\\BookStoreSystem\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "BookStoreSystem\\Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\ms.bithi\\source\\repos\\BookStore\\BookStoreSystem\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "BookStoreSystem\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAACcAAAAAAAAAAAAwwFAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-24T04:54:59.019Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AuthorController.cs",
+              "DocumentMoniker": "C:\\Users\\ms.bithi\\source\\repos\\BookStore\\BookStoreSystem\\Controllers\\AuthorController.cs",
+              "RelativeDocumentMoniker": "BookStoreSystem\\Controllers\\AuthorController.cs",
+              "ToolTip": "C:\\Users\\ms.bithi\\source\\repos\\BookStore\\BookStoreSystem\\Controllers\\AuthorController.cs",
+              "RelativeToolTip": "BookStoreSystem\\Controllers\\AuthorController.cs",
+              "ViewState": "AgIAADkAAAAAAAAAAAAowAoAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-24T04:54:47.521Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "BookController.cs",
+              "DocumentMoniker": "C:\\Users\\ms.bithi\\source\\repos\\BookStore\\BookStoreSystem\\Controllers\\BookController.cs",
+              "RelativeDocumentMoniker": "BookStoreSystem\\Controllers\\BookController.cs",
+              "ToolTip": "C:\\Users\\ms.bithi\\source\\repos\\BookStore\\BookStoreSystem\\Controllers\\BookController.cs",
+              "RelativeToolTip": "BookStoreSystem\\Controllers\\BookController.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-24T04:53:58.785Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "BooksController.cs",
+              "DocumentMoniker": "C:\\Users\\ms.bithi\\source\\repos\\BookStore\\BookStoreMVC\\Controllers\\BooksController.cs",
+              "RelativeDocumentMoniker": "BookStoreMVC\\Controllers\\BooksController.cs",
+              "ToolTip": "C:\\Users\\ms.bithi\\source\\repos\\BookStore\\BookStoreMVC\\Controllers\\BooksController.cs",
+              "RelativeToolTip": "BookStoreMVC\\Controllers\\BooksController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-24T04:53:28.582Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\ms.bithi\\source\\repos\\BookStore\\BookStoreMVC\\Views\\Account\\Login.cshtml",
+              "RelativeDocumentMoniker": "BookStoreMVC\\Views\\Account\\Login.cshtml",
+              "ToolTip": "C:\\Users\\ms.bithi\\source\\repos\\BookStore\\BookStoreMVC\\Views\\Account\\Login.cshtml",
+              "RelativeToolTip": "BookStoreMVC\\Views\\Account\\Login.cshtml",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAB0AAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-24T04:52:41.795Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\ms.bithi\\source\\repos\\BookStore\\BookStoreMVC\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "BookStoreMVC\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\ms.bithi\\source\\repos\\BookStore\\BookStoreMVC\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "BookStoreMVC\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAwwCwAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-24T04:47:21.571Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\ms.bithi\\source\\repos\\BookStore\\BookStoreMVC\\Program.cs",
               "RelativeDocumentMoniker": "BookStoreMVC\\Program.cs",
               "ToolTip": "C:\\Users\\ms.bithi\\source\\repos\\BookStore\\BookStoreMVC\\Program.cs",
               "RelativeToolTip": "BookStoreMVC\\Program.cs",
-              "ViewState": "AgIAABoAAAAAAAAAAAAAACgAAAAXAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-16T08:40:24.796Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 12,
               "Title": "Login.cshtml",
               "DocumentMoniker": "C:\\Users\\ms.bithi\\source\\repos\\BookStore\\BookStoreMVC\\Views\\Login.cshtml",
               "RelativeDocumentMoniker": "BookStoreMVC\\Views\\Login.cshtml",
               "ToolTip": "C:\\Users\\ms.bithi\\source\\repos\\BookStore\\BookStoreMVC\\Views\\Login.cshtml",
               "RelativeToolTip": "BookStoreMVC\\Views\\Login.cshtml",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-11-16T08:40:10.438Z",
               "EditorCaption": ""
@@ -66,40 +386,35 @@
               "RelativeDocumentMoniker": "BookStoreMVC\\Controllers\\AccountController.cs",
               "ToolTip": "C:\\Users\\ms.bithi\\source\\repos\\BookStore\\BookStoreMVC\\Controllers\\AccountController.cs",
               "RelativeToolTip": "BookStoreMVC\\Controllers\\AccountController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-16T08:39:22.244Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "LoginViewModel.cs",
               "DocumentMoniker": "C:\\Users\\ms.bithi\\source\\repos\\BookStore\\BookStoreMVC\\Models\\LoginViewModel.cs",
               "RelativeDocumentMoniker": "BookStoreMVC\\Models\\LoginViewModel.cs",
               "ToolTip": "C:\\Users\\ms.bithi\\source\\repos\\BookStore\\BookStoreMVC\\Models\\LoginViewModel.cs",
               "RelativeToolTip": "BookStoreMVC\\Models\\LoginViewModel.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA4AAAAxAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-16T08:37:43.994Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 23,
               "Title": "CategoryController.cs",
               "DocumentMoniker": "C:\\Users\\ms.bithi\\source\\repos\\BookStore\\BookStoreSystem\\Controllers\\CategoryController.cs",
               "RelativeDocumentMoniker": "BookStoreSystem\\Controllers\\CategoryController.cs",
               "ToolTip": "C:\\Users\\ms.bithi\\source\\repos\\BookStore\\BookStoreSystem\\Controllers\\CategoryController.cs",
               "RelativeToolTip": "BookStoreSystem\\Controllers\\CategoryController.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAkAAAASAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAoAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-16T08:30:27.692Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+              "WhenOpened": "2025-11-16T08:30:27.692Z"
             }
           ]
         }

@@ -1,8 +1,10 @@
-﻿using BookStoreMVC.Models;
+﻿using BookStore.DTOs;
+using BookStoreMVC.Models;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using System.Net.Http.Headers;
-using System.Text;
 using Newtonsoft.Json;
+using System.Text;
 
 namespace BookStoreMVC.Controllers
 {
@@ -12,49 +14,124 @@ namespace BookStoreMVC.Controllers
 
         public AccountController(IHttpClientFactory httpClientFactory)
         {
-            _httpClient = httpClientFactory.CreateClient();
-            _httpClient.BaseAddress = new Uri("https://localhost:7271/"); // API base URL
+            _httpClient = httpClientFactory.CreateClient("BookStore");
+            _httpClient.BaseAddress = new Uri("https://localhost:44364/"); // API base URL
         }
 
         // GET: /Account/Login
         [HttpGet]
+        [AllowAnonymous]
         public IActionResult Login()
         {
-            return View();
+            return View(new LoginViewModel());
         }
 
         // POST: /Account/Login
         [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginViewModel model)
         {
-            if (!ModelState.IsValid) return View(model);
+            if (!ModelState.IsValid)
+                return View(model);
 
-            var jsonContent = JsonConvert.SerializeObject(new
+            try
             {
-                email = model.Email,
-                password = model.Password
-            });
+                var payload = JsonConvert.SerializeObject(new
+                {
+                    email = model.Email,   
+                    password = model.Password
+                });
 
-            var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
-            var response = await _httpClient.PostAsync("api/Auth/login", content);
+                var content = new StringContent(payload, Encoding.UTF8, "application/json");
+                var response = await _httpClient.PostAsync("api/Auth/login", content);
 
-            if (response.IsSuccessStatusCode)
-            {
+                if (!response.IsSuccessStatusCode)
+                {
+                    model.ErrorMessage = "Invalid email or password";
+                    return View(model);
+                }
+
                 var result = await response.Content.ReadAsStringAsync();
                 var tokenObj = JsonConvert.DeserializeObject<TokenResponse>(result);
 
-                // Store token in session
+                if (tokenObj == null || string.IsNullOrEmpty(tokenObj.Token))
+                {
+                    model.ErrorMessage = "Login failed. Token missing.";
+                    return View(model);
+                }
+
+                // Save token in session
                 HttpContext.Session.SetString("JWToken", tokenObj.Token);
 
-                return RedirectToAction("Index", "Book"); // login successful, redirect to Book list
+                return RedirectToAction("Index", "Book");
             }
-            else
+            catch (Exception ex)
             {
-                model.ErrorMessage = "Invalid email or password";
+                model.ErrorMessage = $"Login failed: {ex.Message}";
                 return View(model);
             }
         }
 
+        // GET: /Account/Register
+        [HttpGet]
+        [AllowAnonymous]
+        public IActionResult Register()
+        {
+            return View(new RegistrationViewModel());
+        }
+
+        // POST: /Account/Register
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Register(RegistrationViewModel model)
+        {
+            if (!ModelState.IsValid)
+                return View(model);
+
+            try
+            {
+                var payload = JsonConvert.SerializeObject(new
+                {
+                    fullName = model.FullName,
+                    email = model.Email,
+                    password = model.Password,
+                    role = model.Role
+                });
+
+                var content = new StringContent(payload, Encoding.UTF8, "application/json");
+                var response = await _httpClient.PostAsync("api/Auth/register", content);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    TempData["SuccessMessage"] = "Registration successful! Please log in.";
+                    return RedirectToAction("Login");
+                }
+
+                var apiError = await response.Content.ReadAsStringAsync();
+
+                try
+                {
+                    var errors = JsonConvert.DeserializeObject<List<IdentityError>>(apiError);
+                    model.ErrorMessages = errors?.Select(e => e.Description).ToList() ?? new List<string> { apiError };
+                }
+                catch
+                {
+                    model.ErrorMessages = new List<string> { apiError };
+                }
+
+                return View(model);
+            }
+            catch (Exception ex)
+            {
+                model.ErrorMessages = new List<string> { $"Registration failed: {ex.Message}" };
+                return View(model);
+            }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Logout()
         {
             HttpContext.Session.Remove("JWToken");
@@ -63,7 +140,8 @@ namespace BookStoreMVC.Controllers
 
         public class TokenResponse
         {
-            public string Token { get; set; } = string.Empty;
+            [JsonProperty("token")]
+            public string Token { get; set; }
         }
     }
 }

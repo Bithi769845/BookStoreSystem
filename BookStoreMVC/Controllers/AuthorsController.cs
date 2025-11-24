@@ -1,5 +1,6 @@
 ﻿using BookStore.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Net.Http.Headers;
 using System.Net.Http.Json;
 
 namespace BookStoreMVC.Controllers
@@ -13,7 +14,18 @@ namespace BookStoreMVC.Controllers
             _httpClientFactory = httpClientFactory;
         }
 
-        private HttpClient GetClient() => _httpClientFactory.CreateClient("BookStoreAPI");
+        private HttpClient GetClient()
+        {
+            var client = _httpClientFactory.CreateClient("BookStore");
+            var token = HttpContext.Session.GetString("JWToken");
+
+            if (!string.IsNullOrEmpty(token))
+                client.DefaultRequestHeaders.Authorization =
+                    new AuthenticationHeaderValue("Bearer", token);
+
+            return client;
+        }
+
 
         // GET: Authors
         public async Task<IActionResult> Index()

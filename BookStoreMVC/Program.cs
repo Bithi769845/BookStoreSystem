@@ -5,9 +5,9 @@ builder.Services.AddControllersWithViews();
 
 //Add HttpClient
 builder.Services.AddHttpClient(
-    "BookStoreAPI", client => {
-        client.BaseAddress = new Uri("https://localhost:44364/api");
-    
+    "BookStore", client => {
+        client.BaseAddress = new Uri("https://localhost:44364/");
+
     });
 
 //Configuration for account
@@ -22,6 +22,7 @@ builder.Services.AddHttpClient();
 builder.Services.AddControllersWithViews();
 
 
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -32,16 +33,38 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+app.UseSession();
+app.Use(async (context, next) =>
+{
+    var path = context.Request.Path.Value?.ToLower();
+
+    // Allow Login/Register without token
+    if (path.Contains("/account/login") || path.Contains("/account/register"))
+    {
+        await next();
+        return;
+    }
+
+    // Require JWT for all other pages
+    var token = context.Session.GetString("JWToken");
+    if (string.IsNullOrEmpty(token))
+    {
+        context.Response.Redirect("/Account/Login");
+        return;
+    }
+
+    await next();
+});
+
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
-app.UseSession();
 app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Account}/{action=Login}/{id?}");
 
 app.Run();
