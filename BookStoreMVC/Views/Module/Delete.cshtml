@@ -1,0 +1,10 @@
+﻿@model BookStore.Models.Module
+
+<h2>Delete Module</h2>
+
+<form asp-action="Delete" method="post">
+ <input type="hidden" asp-for="ModuleId" />
+ <p>Are you sure you want to delete <strong>@Model.Name</strong>?</p>
+ <button type="submit" class="btn btn-danger">Yes, Delete</button>
+ <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>

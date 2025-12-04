@@ -1,6 +1,7 @@
 using BookStore.Data;
 using BookStore.Helpers;
 using BookStore.Models.Identity;
+using BookStoreSystem.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -64,6 +65,8 @@ builder.Services.AddAuthentication();
 
 //Add JwtTokenGenerator
 builder.Services.AddScoped<JwtTokenGenerator>();
+builder.Services.AddScoped<IPermissionService, PermissionService>();
+
 
 //swagger configuration
 builder.Services.AddSwaggerGen(c =>
@@ -95,6 +98,54 @@ builder.Services.AddSwaggerGen(c =>
 });
 
 var app = builder.Build();
+
+// Seed default admin user & role (development only)
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    try
+    {
+        var roleManager = services.GetRequiredService<RoleManager<ApplicationRole>>();
+        var userManager = services.GetRequiredService<UserManager<ApplicationUser>>();
+
+        const string adminRole = "Admin";
+        const string adminEmail = "admin@local";
+        const string adminPassword = "Admin@123!";
+
+        // create Admin role if not exists
+        var roleExists = roleManager.RoleExistsAsync(adminRole).GetAwaiter().GetResult();
+        if (!roleExists)
+        {
+            roleManager.CreateAsync(new ApplicationRole { Name = adminRole }).GetAwaiter().GetResult();
+        }
+
+        // create admin user if not exists
+        var adminUser = userManager.FindByEmailAsync(adminEmail).GetAwaiter().GetResult();
+        if (adminUser == null)
+        {
+            adminUser = new ApplicationUser
+            {
+                UserName = adminEmail,
+                Email = adminEmail,
+                FullName = "Administrator"
+            };
+            var createRes = userManager.CreateAsync(adminUser, adminPassword).GetAwaiter().GetResult();
+            if (createRes.Succeeded)
+            {
+                userManager.AddToRoleAsync(adminUser, adminRole).GetAwaiter().GetResult();
+                Console.WriteLine($"Seeded admin user: {adminEmail} / {adminPassword}");
+            }
+            else
+            {
+                Console.WriteLine("Failed to create seed admin: " + string.Join(';', createRes.Errors.Select(e => e.Description)));
+            }
+        }
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine("Error during seeding: " + ex);
+    }
+}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

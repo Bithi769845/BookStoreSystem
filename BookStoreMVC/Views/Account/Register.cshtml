@@ -14,14 +14,8 @@
                         <span asp-validation-for="FullName" class="text-danger"></span>
                     </div>
 
-                    <div class="mb-3">
-                        <label asp-for="Role" class="form-label"></label>
-                        <select asp-for="Role" class="form-control">
-                            <option value="User">User</option>
-                            <option value="Admin">Admin</option>
-                        </select>
-                        <span asp-validation-for="Role" class="text-danger"></span>
-                    </div>
+                    @* Public registration always assigns 'User' role by default. Keep hidden input. Admin UI can change roles later. *@
+                    <input type="hidden" asp-for="Role" value="User" />
 
                     <div class="mb-3">
                         <label asp-for="Email" class="form-label"></label>

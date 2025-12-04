@@ -1,0 +1,34 @@
+﻿@model RoleModuleViewModel
+<h2>Assign Modules to @Model.RoleName</h2>
+
+<form asp-action="AssignModules" method="post">
+    <input type="hidden" asp-for="RoleId" />
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Module</th>
+                <th>View</th>
+                <th>Create</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.Modules.Count; i++)
+            {
+                <tr>
+                    <td>@Model.Modules[i].ModuleName</td>
+                    <td>
+                        <input type="hidden" asp-for="Modules[i].ModuleId" />
+                    <td><input type="checkbox" asp-for="Modules[i].CanView" /></td>
+                    <td><input type="checkbox" asp-for="Modules[i].CanCreate" /></td>
+                    <td><input type="checkbox" asp-for="Modules[i].CanEdit" /></td>
+                    <td><input type="checkbox" asp-for="Modules[i].CanDelete" /></td>
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <button class="btn btn-primary" type="submit">Save</button>
+</form>

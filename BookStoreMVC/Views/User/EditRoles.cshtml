@@ -1,0 +1,25 @@
+@model BookStoreMVC.Controllers.EditRolesViewModel
+
+@{
+ ViewData["Title"] = "Edit Roles";
+}
+
+<h2>Edit Roles for @Model.Email</h2>
+
+<form asp-action="EditRoles" method="post">
+ @Html.AntiForgeryToken()
+ <input type="hidden" asp-for="UserId" />
+ <table class="table">
+ <thead><tr><th>Role</th><th>Assigned</th></tr></thead>
+ <tbody>
+ @for(int i=0;i<Model.Roles.Count;i++)
+ {
+ <tr>
+ <td>@Model.Roles[i].Name</td>
+ <td><input asp-for="Roles[i].Selected" /></td>
+ </tr>
+ }
+ </tbody>
+ </table>
+ <button type="submit" class="btn btn-primary">Save</button>
+</form>

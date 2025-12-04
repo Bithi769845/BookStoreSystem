@@ -1,0 +1,22 @@
+@model List<BookStoreMVC.Controllers.UserListItem>
+
+@{
+ ViewData["Title"] = "Users";
+}
+
+<h2>Users</h2>
+<table class="table">
+ <thead>
+ <tr><th>Email</th><th>Full Name</th><th>Actions</th></tr>
+ </thead>
+ <tbody>
+ @foreach(var u in Model)
+ {
+ <tr>
+ <td>@u.Email</td>
+ <td>@u.FullName</td>
+ <td><a asp-action="EditRoles" asp-route-id="@u.Id" class="btn btn-sm btn-primary">Edit Roles</a></td>
+ </tr>
+ }
+ </tbody>
+</table>

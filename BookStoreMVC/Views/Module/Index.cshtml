@@ -1,0 +1,25 @@
+﻿@model IEnumerable<BookStore.Models.Module>
+
+<h2>Modules</h2>
+<a asp-action="Create" class="btn btn-primary mb-2">Add Module</a>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Module Name</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var m in Model)
+        {
+            <tr>
+                <td>@m.Name</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@m.ModuleId" class="btn btn-sm btn-warning">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@m.ModuleId" class="btn btn-sm btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

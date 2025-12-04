@@ -1,0 +1,13 @@
+﻿@model string
+
+<h2>Create Role</h2>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label>Role Name</label>
+        <input name="roleName" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-2">Save</button>
+    <a asp-action="Index" class="btn btn-secondary mt-2">Back</a>
+</form>

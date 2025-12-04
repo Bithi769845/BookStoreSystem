@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using System;
 using System.Text;
 
 namespace BookStoreMVC.Controllers
@@ -32,6 +33,7 @@ namespace BookStoreMVC.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginViewModel model)
         {
+
             if (!ModelState.IsValid)
                 return View(model);
 
@@ -39,12 +41,15 @@ namespace BookStoreMVC.Controllers
             {
                 var payload = JsonConvert.SerializeObject(new
                 {
-                    email = model.Email,   
+                    email = model.Email,
                     password = model.Password
                 });
 
                 var content = new StringContent(payload, Encoding.UTF8, "application/json");
                 var response = await _httpClient.PostAsync("api/Auth/login", content);
+
+                var respText = await response.Content.ReadAsStringAsync();
+                Console.WriteLine($"Login API status: {(int)response.StatusCode} {response.ReasonPhrase}; body: {respText}");
 
                 if (!response.IsSuccessStatusCode)
                 {
@@ -52,7 +57,7 @@ namespace BookStoreMVC.Controllers
                     return View(model);
                 }
 
-                var result = await response.Content.ReadAsStringAsync();
+                var result = respText;
                 var tokenObj = JsonConvert.DeserializeObject<TokenResponse>(result);
 
                 if (tokenObj == null || string.IsNullOrEmpty(tokenObj.Token))
@@ -61,17 +66,19 @@ namespace BookStoreMVC.Controllers
                     return View(model);
                 }
 
-                // Save token in session
+                // Save JWT in session
                 HttpContext.Session.SetString("JWToken", tokenObj.Token);
 
-                return RedirectToAction("Index", "Book");
+                return RedirectToAction("Index", "Books");
             }
             catch (Exception ex)
             {
+                Console.WriteLine($"AccountController.Login exception: {ex}");
                 model.ErrorMessage = $"Login failed: {ex.Message}";
                 return View(model);
             }
         }
+
 
         // GET: /Account/Register
         [HttpGet]

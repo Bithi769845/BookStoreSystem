@@ -9,35 +9,46 @@ namespace BookStore.Helpers
     public class JwtTokenGenerator
     {
         private readonly IConfiguration _config;
+
         public JwtTokenGenerator(IConfiguration config)
         {
             _config = config;
         }
-        public string GenerateToken(ApplicationUser user, IList<string> roles)
+
+        public string GenerateToken(ApplicationUser user, IList<string> roles, IList<Claim> moduleClaims)
         {
             var jwtSettings = _config.GetSection("JwtSettings");
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSettings["Key"]));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+
             var claims = new List<Claim>
             {
                 new Claim(ClaimTypes.NameIdentifier, user.Id),
                 new Claim(ClaimTypes.Name, user.UserName),
                 new Claim(ClaimTypes.Email, user.Email)
-
             };
+
+            // Add roles
             foreach (var role in roles)
             {
                 claims.Add(new Claim(ClaimTypes.Role, role));
             }
+
+            // Add module access claims
+            foreach (var m in moduleClaims)
+            {
+                claims.Add(m);   // Claim("Module", "Books")
+            }
+
             var token = new JwtSecurityToken(
                 issuer: jwtSettings["Issuer"],
                 audience: jwtSettings["Audience"],
                 claims: claims,
                 expires: DateTime.UtcNow.AddHours(5),
-                signingCredentials:creds
+                signingCredentials: creds
+            );
 
-                );
-            return new JwtSecurityTokenHandler().WriteToken(token); //This converts the token object into a Base64 string
+            return new JwtSecurityTokenHandler().WriteToken(token);
         }
     }
 }
