@@ -1,4 +1,5 @@
 ﻿using BookStore.Models;
+using BookStoreMVC.Attributes;
 using Microsoft.AspNetCore.Mvc;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
@@ -28,6 +29,8 @@ namespace BookStoreMVC.Controllers
 
 
         // GET: Categories
+        [ModuleAuthorize("View")]
+
         public async Task<IActionResult> Index()
         {
             var client = GetClient();
@@ -36,6 +39,8 @@ namespace BookStoreMVC.Controllers
         }
 
         // GET: Categories/Create
+        [ModuleAuthorize("Create")]
+
         public IActionResult Create()
         {
             return View();
@@ -44,6 +49,8 @@ namespace BookStoreMVC.Controllers
         // POST: Categories/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ModuleAuthorize("Create")]
+
         public async Task<IActionResult> Create(Category category)
         {
             if (!ModelState.IsValid) return View(category);
@@ -54,6 +61,8 @@ namespace BookStoreMVC.Controllers
         }
 
         // GET: Categories/Edit/5
+        [ModuleAuthorize("Edit")]
+
         public async Task<IActionResult> Edit(int id)
         {
             var client = GetClient();
@@ -66,6 +75,8 @@ namespace BookStoreMVC.Controllers
         // POST: Categories/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ModuleAuthorize("Edit")]
+
         public async Task<IActionResult> Edit(int id, Category category)
         {
             if (!ModelState.IsValid) return View(category);
@@ -84,6 +95,8 @@ namespace BookStoreMVC.Controllers
         }
 
         // GET: Categories/Delete/5
+        [ModuleAuthorize("Delete")]
+
         public async Task<IActionResult> Delete(int id)
         {
             var client = GetClient();
@@ -96,6 +109,8 @@ namespace BookStoreMVC.Controllers
         // POST: Categories/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [ModuleAuthorize("Delete")]
+
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var client = GetClient();

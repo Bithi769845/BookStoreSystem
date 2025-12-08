@@ -54,6 +54,13 @@ namespace BookStoreSystem.Services
 
             return modules ?? new List<Module>();
         }
+        public bool HasAccessByRoleName(string roleName, string moduleName, string action)
+        {
+            var role = _roleManager.Roles.FirstOrDefault(r => r.Name == roleName);
+            if (role == null) return false;
+
+            return HasAccess(role.Id, moduleName, action);
+        }
 
         public bool HasAccess(string roleId, string moduleName, string action)
         {

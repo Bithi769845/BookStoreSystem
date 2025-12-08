@@ -31,12 +31,17 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-controller="Categories" asp-action="Index">Categories</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="Role" asp-action="Index">Role</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="Module" asp-action="Index">Module</a>
-                        </li>
+
+                        @* Show admin links only to users in Admin role *@
+                        @if (User?.Identity?.IsAuthenticated == true && User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-controller="Role" asp-action="Index">Roles</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-controller="User" asp-action="Index">Users</a>
+                            </li>
+                        }
 
                         @if (string.IsNullOrEmpty(Context.Session.GetString("JWToken")))
                         {

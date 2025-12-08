@@ -1,0 +1,10 @@
+﻿@{
+    ViewBag.Title = "Access Denied";
+}
+
+<h2>Access Denied</h2>
+<p>You do not have permission to access this page.</p>
+@if (!string.IsNullOrEmpty(ViewBag.ReturnUrl))
+{
+    <p>Return to <a href="@ViewBag.ReturnUrl">previous page</a>.</p>
+}

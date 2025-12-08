@@ -6,7 +6,11 @@ namespace BookStoreSystem.Services
 {
     public interface IPermissionService
     {
-        bool HasAccess(string roleId, string moduleName, string action);
         Task<List<Module>> GetModulesForUser(string userId);
+        bool HasAccess(string roleId, string moduleName, string action);
+
+        // এটা add করো
+        bool HasAccessByRoleName(string roleName, string moduleName, string action);
     }
+
 }

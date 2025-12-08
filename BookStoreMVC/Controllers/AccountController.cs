@@ -6,17 +6,28 @@ using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System;
 using System.Text;
+using BookStore.Models.Identity;
 
 namespace BookStoreMVC.Controllers
 {
     public class AccountController : Controller
     {
         private readonly HttpClient _httpClient;
+        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly SignInManager<ApplicationUser> _signInManager;
 
-        public AccountController(IHttpClientFactory httpClientFactory)
+        public AccountController(IHttpClientFactory httpClientFactory, UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager)
         {
             _httpClient = httpClientFactory.CreateClient("BookStore");
             _httpClient.BaseAddress = new Uri("https://localhost:44364/"); // API base URL
+            _userManager = userManager;
+            _signInManager = signInManager;
+        }
+
+        public IActionResult AccessDenied(string returnUrl)
+        {
+            ViewBag.ReturnUrl = returnUrl;
+            return View();
         }
 
         // GET: /Account/Login
@@ -66,8 +77,15 @@ namespace BookStoreMVC.Controllers
                     return View(model);
                 }
 
-                // Save JWT in session
+                // Save JWT in session (keep JWT for API calls)
                 HttpContext.Session.SetString("JWToken", tokenObj.Token);
+
+                // Also sign in the user with cookie so MVC Authorize works
+                var user = await _userManager.FindByEmailAsync(model.Email);
+                if (user != null)
+                {
+                    await _signInManager.SignInAsync(user, isPersistent: false);
+                }
 
                 return RedirectToAction("Index", "Books");
             }
@@ -139,9 +157,12 @@ namespace BookStoreMVC.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Logout()
+        public async Task<IActionResult> Logout()
         {
+            // Remove JWT from session
             HttpContext.Session.Remove("JWToken");
+            // Sign out cookie
+            await _signInManager.SignOutAsync();
             return RedirectToAction("Login");
         }
 

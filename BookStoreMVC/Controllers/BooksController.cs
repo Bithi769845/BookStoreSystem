@@ -1,4 +1,5 @@
 ﻿using BookStore.Models;
+using BookStoreMVC.Attributes;
 using Microsoft.AspNetCore.Mvc;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
@@ -34,6 +35,8 @@ public class BooksController : Controller
     }
 
     // GET: Books
+    [ModuleAuthorize("View")]
+
     public async Task<IActionResult> Index()
     {
         var client = GetClient();
@@ -42,6 +45,8 @@ public class BooksController : Controller
     }
 
     // GET: Books/Create
+    [ModuleAuthorize("Create")]
+
     public async Task<IActionResult> Create()
     {
         await PopulateViewBags();
@@ -51,6 +56,8 @@ public class BooksController : Controller
     // POST: Books/Create
     [HttpPost]
     [ValidateAntiForgeryToken]
+    [ModuleAuthorize("Create")]
+
     public async Task<IActionResult> Create(Book book)
     {
         if (!ModelState.IsValid)
@@ -65,6 +72,8 @@ public class BooksController : Controller
     }
 
     // GET: Books/Edit/5
+    [ModuleAuthorize("Edit")]
+
     public async Task<IActionResult> Edit(int id)
     {
         var client = GetClient();
@@ -78,6 +87,8 @@ public class BooksController : Controller
     // POST: Books/Edit/5
     [HttpPost]
     [ValidateAntiForgeryToken]
+    [ModuleAuthorize("Edit")]
+
     public async Task<IActionResult> Edit(int id, Book book)
     {
         if (!ModelState.IsValid)
@@ -101,6 +112,8 @@ public class BooksController : Controller
     }
 
     // GET: Books/Delete/5
+    [ModuleAuthorize("Delete")]
+
     public async Task<IActionResult> Delete(int id)
     {
         var client = GetClient();
@@ -113,6 +126,8 @@ public class BooksController : Controller
     // POST: Books/Delete/5
     [HttpPost, ActionName("Delete")]
     [ValidateAntiForgeryToken]
+    [ModuleAuthorize("Delete")]
+
     public async Task<IActionResult> DeleteConfirmed(int id)
     {
         var client = GetClient();

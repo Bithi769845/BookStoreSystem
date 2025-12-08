@@ -1,9 +1,13 @@
 ﻿using BookStore.Data;
 using BookStore.Models;
+using BookStoreMVC.Attributes;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookStoreMVC.Controllers
 {
+    [Authorize(Roles = "Admin")]
+
     public class ModuleController : Controller
     {
         private readonly ApplDbContext _context;
@@ -13,16 +17,19 @@ namespace BookStoreMVC.Controllers
             _context = context;
         }
 
+        [ModuleAuthorize("View")]
         public IActionResult Index()
         {
             return View(_context.Modules.ToList());
         }
 
         // CREATE
+        [ModuleAuthorize("Create")]
         public IActionResult Create() => View();
 
+
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        [ModuleAuthorize("Create")]
         public IActionResult Create(Module model)
         {
             if (ModelState.IsValid)
@@ -35,6 +42,7 @@ namespace BookStoreMVC.Controllers
         }
 
         // EDIT
+        [ModuleAuthorize("Edit")]
         public IActionResult Edit(int id)
         {
             var module = _context.Modules.Find(id);
@@ -42,7 +50,7 @@ namespace BookStoreMVC.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        [ModuleAuthorize("Edit")]
         public IActionResult Edit(Module model)
         {
             if (ModelState.IsValid)
@@ -55,6 +63,7 @@ namespace BookStoreMVC.Controllers
         }
 
         // DELETE
+        [ModuleAuthorize("Delete")]
         public IActionResult Delete(int id)
         {
             var module = _context.Modules.Find(id);
@@ -62,7 +71,7 @@ namespace BookStoreMVC.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        [ModuleAuthorize("Delete")]
         public IActionResult Delete(Module model)
         {
             var module = _context.Modules.Find(model.ModuleId);
