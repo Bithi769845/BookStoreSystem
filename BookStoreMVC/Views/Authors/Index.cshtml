@@ -1,27 +1,98 @@
 ﻿@model List<BookStore.Models.Author>
 
-<h2>Authors</h2>
-<a asp-action="Create" class="btn btn-primary mb-3">Add Author</a>
+@section Breadcrumb {
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Dashboard</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Authors</li>
+        </ol>
+    </nav>
+}
 
-<table class="table table-bordered">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Biography</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var author in Model)
-        {
-            <tr>
-                <td>@author.Name</td>
-                <td>@author.Biography</td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@author.AuthorId" class="btn btn-sm btn-warning">Edit</a>
-                    <a asp-action="Delete" asp-route-id="@author.AuthorId" class="btn btn-sm btn-danger">Delete</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h2 class="m-0">Authors</h2>
+    <div>
+        <a asp-action="Create" class="btn btn-primary me-2">Add Author</a>
+        <a asp-action="Index" class="btn btn-outline-secondary">Refresh</a>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-striped align-middle mb-0">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Biography</th>
+                        <th style="width:140px">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model != null && Model.Any())
+                    {
+                        foreach (var author in Model)
+                        {
+                            <tr>
+                                <td>@author.Name</td>
+                                <td class="text-muted-small">@author.Biography</td>
+                                <td>
+                                    <!-- Edit -->
+                                    <a asp-action="Edit" asp-route-id="@author.AuthorId"
+                                       class="btn btn-sm btn-outline-warning me-1"
+                                       data-bs-toggle="tooltip" title="Edit Book">
+                                        <i class="bi bi-pencil-square"></i>
+                                    </a>
+                                    <!-- Delete Modal Trigger -->
+                                    <button type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteModal-@author.AuthorId" data-bs-toggle="tooltip" title="Delete Book">
+                                        <i class="bi bi-trash"></i>
+                                    </button>
+
+                                    <!-- Delete Modal -->
+                                    <div class="modal fade" id="deleteModal-@author.AuthorId" tabindex="-1" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered">
+                                            <div class="modal-content">
+                                                <div class="modal-header bg-danger text-white">
+                                                    <h5 class="modal-title"><i class="bi bi-exclamation-triangle-fill me-1"></i> Delete Book</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    Are you sure you want to delete "<strong>@author.AuthorId</strong>"?
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <form asp-action="Delete" asp-route-id="@author.Name" method="post">
+                                                        @Html.AntiForgeryToken()
+                                                        <button type="submit" class="btn btn-danger">
+                                                            <i class="bi bi-trash me-1"></i> Yes, Delete
+                                                        </button>
+                                                    </form>
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                                        <i class="bi bi-x-circle me-1"></i> Cancel
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr><td colspan="3" class="text-center p-3 text-muted-small">No authors available.</td></tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    <script>
+        // Enable Bootstrap tooltips
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl)
+        })
+    </script>
+}

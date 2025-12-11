@@ -73,6 +73,7 @@ namespace BookStoreSystem.Services
                     rm.RoleId == roleId &&
                     rm.Module != null && rm.Module.Name == moduleName &&
                     ((action == "View" && rm.CanView) ||
+                     (action == "Create" && rm.CanCreate) ||
                      (action == "Edit" && rm.CanEdit) ||
                      (action == "Delete" && rm.CanDelete))
                 );

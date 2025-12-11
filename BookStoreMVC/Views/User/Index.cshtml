@@ -1,22 +1,54 @@
 @model List<BookStoreMVC.Controllers.UserListItem>
 
-@{
- ViewData["Title"] = "Users";
+@section Breadcrumb {
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item">
+                <a asp-controller="Home" asp-action="Index">Dashboard</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">Users</li>
+        </ol>
+    </nav>
 }
 
-<h2>Users</h2>
-<table class="table">
- <thead>
- <tr><th>Email</th><th>Full Name</th><th>Actions</th></tr>
- </thead>
- <tbody>
- @foreach(var u in Model)
- {
- <tr>
- <td>@u.Email</td>
- <td>@u.FullName</td>
- <td><a asp-action="EditRoles" asp-route-id="@u.Id" class="btn btn-sm btn-primary">Edit Roles</a></td>
- </tr>
- }
- </tbody>
-</table>
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h2 class="m-0">Users</h2>
+    <div>
+        <a asp-action="Index" class="btn btn-outline-secondary">Refresh</a>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-striped align-middle mb-0">
+                <thead>
+                    <tr>
+                        <th>Email</th>
+                        <th>Full Name</th>
+                        <th style="width:160px">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model != null && Model.Any())
+                    {
+                        foreach(var u in Model)
+                        {
+                            <tr>
+                                <td>@u.Email</td>
+                                <td class="text-muted-small">@u.FullName</td>
+                                <td>
+                                    <a asp-action="EditRoles" asp-route-id="@u.Id" class="btn btn-sm btn-outline-primary">Edit Roles</a>
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr><td colspan="3" class="text-center p-3 text-muted-small">No users found.</td></tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

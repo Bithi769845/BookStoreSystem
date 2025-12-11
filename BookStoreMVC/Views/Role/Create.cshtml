@@ -1,13 +1,25 @@
 ﻿@model string
 
-<h2>Create Role</h2>
+@section Breadcrumb {
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Dashboard</a></li>
+            <li class="breadcrumb-item"><a asp-controller="Role" asp-action="Index">Roles</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Create Role</li>
+        </ol>
+    </nav>
+}
 
-<form asp-action="Create" method="post">
-    <div class="form-group">
-        <label>Role Name</label>
-        <input name="roleName" class="form-control" />
+<div class="card">
+    <div class="card-header">Create Role</div>
+    <div class="card-body">
+        <form asp-action="Create" method="post">
+            <div class="mb-3">
+                <label>Role Name</label>
+                <input name="roleName" class="form-control" />
+            </div>
+            <button type="submit" class="btn btn-primary">Save</button>
+            <a asp-action="Index" class="btn btn-link">Cancel</a>
+        </form>
     </div>
-
-    <button type="submit" class="btn btn-primary mt-2">Save</button>
-    <a asp-action="Index" class="btn btn-secondary mt-2">Back</a>
-</form>
+</div>

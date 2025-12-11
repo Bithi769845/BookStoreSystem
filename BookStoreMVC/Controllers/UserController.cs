@@ -13,12 +13,14 @@ namespace BookStoreMVC.Controllers
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly RoleManager<ApplicationRole> _roleManager;
         private readonly ApplDbContext _context;
+        private readonly SignInManager<ApplicationUser> _signInManager;
 
-        public UserController(UserManager<ApplicationUser> userManager, RoleManager<ApplicationRole> roleManager, ApplDbContext context)
+        public UserController(UserManager<ApplicationUser> userManager, RoleManager<ApplicationRole> roleManager, ApplDbContext context, SignInManager<ApplicationUser> signInManager)
         {
             _userManager = userManager;
             _roleManager = roleManager;
             _context = context;
+            _signInManager = signInManager;
         }
 
         public async Task<IActionResult> Index()
@@ -80,6 +82,9 @@ namespace BookStoreMVC.Controllers
 
             if (toRemove.Any())
                 await _userManager.RemoveFromRolesAsync(user, toRemove);
+
+            // Refresh the sign-in cookie so role changes apply immediately for this user if they are signed in
+            await _signInManager.RefreshSignInAsync(user);
 
             return RedirectToAction("Index");
         }

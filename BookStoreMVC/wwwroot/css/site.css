@@ -8,9 +8,73 @@ html {
   }
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+:root {
+  --brand-blue: #2563eb; /* primary */
+  --brand-indigo: #4f46e5;
+  --accent: #06b6d4;
+  --muted: #6b7280;
+  --card-bg: #ffffff;
+  --surface: #f8fafc;
 }
+
+body {
+  background: var(--surface);
+  color: #111827;
+}
+
+/* Focus styles */
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem rgba(37, 99, 235, 0.25);
+}
+
+/* Layout spacing */
+.container-fluid { padding-left: 2rem; padding-right: 2rem; }
+
+/* KPI cards */
+.kpi-card {
+  border: 0;
+  border-radius: 0.75rem;
+  box-shadow: 6px 18px rgba(15, 23, 42, 0.06);
+}
+.kpi-card .card-body { padding: 1.25rem; }
+.kpi-value { font-size: 2rem; font-weight: 700; }
+.kpi-label { color: var(--muted); font-size: 0.9rem; }
+.kpi-icon {
+  width: 48px;
+  height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  color: white;
+}
+.kpi-primary { background: linear-gradient(135deg, var(--brand-blue), var(--brand-indigo)); }
+.kpi-success { background: linear-gradient(135deg, #16a34a, #059669); }
+.kpi-warning { background: linear-gradient(135deg, #f59e0b, #f97316); }
+.kpi-info { background: linear-gradient(135deg, var(--accent), #06b6d4); }
+
+/* Card headers */
+.card-header { background: transparent; border-bottom: none; font-weight: 600; }
+
+/* Recent items table */
+.table thead th { border-bottom: 1px solid #e6edf3; }
+.table tbody tr td { vertical-align: middle; }
+
+/* Activity feed */
+.activity-item { padding: 0.75rem 0.5rem; border-bottom: 1px solid rgba(15, 23, 42, 0.04); }
+.activity-time { color: var(--muted); font-size: 0.85rem; }
+
+/* Module tiles */
+.module-tile {
+  border-radius: 0.75rem;
+  padding: 1rem;
+  box-shadow: 6px 18px rgba(15, 23, 42, 0.04);
+  background: linear-gradient(180deg, #fff, #fbfdff);
+}
+.module-tile .title { font-weight: 600; }
+
+/* Small helpers */
+.text-muted-small { color: var(--muted); font-size: 0.9rem; }
 
 html {
   position: relative;

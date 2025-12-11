@@ -1,25 +1,33 @@
 @model BookStoreMVC.Controllers.EditRolesViewModel
 
-@{
- ViewData["Title"] = "Edit Roles";
+@section Breadcrumb {
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Dashboard</a></li>
+            <li class="breadcrumb-item"><a asp-controller="User" asp-action="Index">Users</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Edit Roles</li>
+        </ol>
+    </nav>
 }
 
-<h2>Edit Roles for @Model.Email</h2>
-
-<form asp-action="EditRoles" method="post">
- @Html.AntiForgeryToken()
- <input type="hidden" asp-for="UserId" />
- <table class="table">
- <thead><tr><th>Role</th><th>Assigned</th></tr></thead>
- <tbody>
- @for(int i=0;i<Model.Roles.Count;i++)
- {
- <tr>
- <td>@Model.Roles[i].Name</td>
- <td><input asp-for="Roles[i].Selected" /></td>
- </tr>
- }
- </tbody>
- </table>
- <button type="submit" class="btn btn-primary">Save</button>
-</form>
+<div class="card">
+    <div class="card-header">Edit Roles for @Model.Email</div>
+    <div class="card-body">
+        <form asp-action="EditRoles" method="post">
+            @Html.AntiForgeryToken()
+            <input type="hidden" asp-for="UserId" />
+            <div class="mb-3">
+                @for(int i=0;i<Model.Roles.Count;i++)
+                {
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="hidden" asp-for="Roles[i].Name" />
+                        <input class="form-check-input" type="checkbox" asp-for="Roles[i].Selected" id="role_@i" />
+                        <label class="form-check-label ms-2" for="role_@i">@Model.Roles[i].Name</label>
+                    </div>
+                }
+            </div>
+            <button type="submit" class="btn btn-primary">Save</button>
+            <a asp-action="Index" class="btn btn-link">Cancel</a>
+        </form>
+    </div>
+</div>

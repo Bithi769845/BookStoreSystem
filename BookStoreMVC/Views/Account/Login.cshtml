@@ -1,50 +1,98 @@
 ﻿@model BookStoreMVC.Models.LoginViewModel
+@{
+    Layout = null; // Standalone login page
+}
 
-<div class="row justify-content-center mt-5">
-    <div class="col-md-5">
-        <div class="card shadow-lg">
-            <div class="card-body">
-                <h3 class="text-center mb-4">Login</h3>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - BookStore</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <style>
+        
+       
 
-                <form asp-controller="Account" asp-action="Login" method="post">
-                  @* @Html.AntiForgeryToken() *@
 
-                    <div class="mb-3">
-                        <label asp-for="Email" class="form-label"></label>
-                        <input asp-for="Email" class="form-control" />
-                        <span asp-validation-for="Email" class="text-danger"></span>
+        .brand-box {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 20px;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body class="bg-white">
+    <div class="container-fluid  vh-100">
+        <div class="row h-100">
+
+            <!-- LEFT PANEL -->
+            <div class="col-md-6 d-none d-md-flex align-items-center justify-content-center"
+                 style="background: linear-gradient(135deg,#2563eb,#4f46e5); color:white; height:100%;">
+                <div class="text-center p-5">
+                    <div class="brand-box mb-3">
+                        <svg width="64" height="64" xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24">
+                            <path d="M3 4h18v16H3V4zm2 2v12h14V6H5z" />
+                        </svg>
                     </div>
-
-                    <div class="mb-3">
-                        <label asp-for="Password" class="form-label"></label>
-                        <input asp-for="Password" type="password" class="form-control" />
-                        <span asp-validation-for="Password" class="text-danger"></span>
-                    </div>
-
-                    @* Display TempData success message after registration *@
-                    @if (TempData["SuccessMessage"] != null)
-                    {
-                        <div class="alert alert-success">@TempData["SuccessMessage"]</div>
-                    }
-
-                    @* Display login error messages from model *@
-                    @if (!string.IsNullOrEmpty(Model?.ErrorMessage))
-                    {
-                        <div class="alert alert-danger">@Model.ErrorMessage</div>
-                    }
-
-                    <button type="submit" class="btn btn-primary w-100">Login</button>
-                </form>
-
-                <div class="text-center mt-3">
-                    <a asp-action="Register">Don't have an account? Register</a>
+                    <h1 class="mb-2 fw-bold">BookStore Admin</h1>
+                    <p class="text-white-50">Manage your books, authors, and categories from a secure admin dashboard.</p>
+                    <ul class="text-white-50 text-start mt-3">
+                        <li>Manage inventory</li>
+                        <li>Assign roles & permissions</li>
+                        <li>View reports & analytics</li>
+                    </ul>
                 </div>
             </div>
+
+            <!-- RIGHT PANEL -->
+            <div class="col-12 col-md-6 d-flex align-items-center justify-content-center">
+                <div style="width:100%; max-width:420px;">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h3 class="text-center mb-3">Sign in to your account</h3>
+                            <form asp-controller="Account" asp-action="Login" method="post">
+                                @Html.AntiForgeryToken()
+                                <div class="mb-3">
+                                    <label asp-for="Email" class="form-label">Email</label>
+                                    <input asp-for="Email" class="form-control" />
+                                    <span asp-validation-for="Email" class="text-danger"></span>
+                                </div>
+                                <div class="mb-3">
+                                    <label asp-for="Password" class="form-label">Password</label>
+                                    <input asp-for="Password" type="password" class="form-control" />
+                                    <span asp-validation-for="Password" class="text-danger"></span>
+                                </div>
+                                @if (!string.IsNullOrEmpty(Model?.ErrorMessage))
+                                {
+                                    <div class="alert alert-danger">@Model.ErrorMessage</div>
+                                }
+                                <button type="submit" class="btn btn-primary w-100">Login</button>
+                            </form>
+                            <div class="text-center mt-3">
+                                <span class="text-muted">Don't have an account?</span>
+                                <a asp-action="Register">Register</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center mt-3 text-muted">&copy; 2025 BookStore</div>
+                </div>
+            </div>
+
         </div>
     </div>
-</div>
 
-@section Scripts {
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
     <partial name="_ValidationScriptsPartial" />
-   
-}
+</body>
+</html>

@@ -7,6 +7,7 @@ using Newtonsoft.Json;
 using System;
 using System.Text;
 using BookStore.Models.Identity;
+using System.Security.Claims;
 
 namespace BookStoreMVC.Controllers
 {
@@ -84,10 +85,15 @@ namespace BookStoreMVC.Controllers
                 var user = await _userManager.FindByEmailAsync(model.Email);
                 if (user != null)
                 {
-                    await _signInManager.SignInAsync(user, isPersistent: false);
+                    // Get roles and include them in the cookie claims to ensure [Authorize(Roles=..)] works
+                    var roles = await _userManager.GetRolesAsync(user);
+                    var roleClaims = roles.Select(r => new Claim(ClaimTypes.Role, r)).ToList();
+
+                    // Sign in with role claims included
+                    await _signInManager.SignInWithClaimsAsync(user, isPersistent: false, additionalClaims: roleClaims);
                 }
 
-                return RedirectToAction("Index", "Books");
+                return RedirectToAction("Index", "Home");
             }
             catch (Exception ex)
             {

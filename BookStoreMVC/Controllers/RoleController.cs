@@ -57,11 +57,18 @@ namespace BookStoreMVC.Controllers
             {
                 RoleId = roleId,
                 RoleName = role?.Name ?? "",
-                Modules = modules.Select(m => new ModuleAccessModel
+                Modules = modules.Select(m =>
                 {
-                    ModuleId = m.ModuleId,
-                    ModuleName = m.Name,
-                    CanView = _context.RoleModuleAccesses.Any(r => r.RoleId == roleId && r.ModuleId == m.ModuleId && r.CanView)
+                    var access = _context.RoleModuleAccesses.FirstOrDefault(r => r.RoleId == roleId && r.ModuleId == m.ModuleId);
+                    return new ModuleAccessModel
+                    {
+                        ModuleId = m.ModuleId,
+                        ModuleName = m.Name,
+                        CanView = access != null && access.CanView,
+                        CanCreate = access != null && access.CanCreate,
+                        CanEdit = access != null && access.CanEdit,
+                        CanDelete = access != null && access.CanDelete
+                    };
                 }).ToList()
             };
             return View(model);

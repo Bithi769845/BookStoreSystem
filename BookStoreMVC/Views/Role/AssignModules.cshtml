@@ -1,34 +1,61 @@
-﻿@model RoleModuleViewModel
-<h2>Assign Modules to @Model.RoleName</h2>
+﻿@model BookStoreMVC.Models.RoleModuleViewModel
 
-<form asp-action="AssignModules" method="post">
-    <input type="hidden" asp-for="RoleId" />
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Module</th>
-                <th>View</th>
-                <th>Create</th>
-                <th>Edit</th>
-                <th>Delete</th>
-            </tr>
-        </thead>
-        <tbody>
-            @for (int i = 0; i < Model.Modules.Count; i++)
-            {
-                <tr>
-                    <td>@Model.Modules[i].ModuleName</td>
-                    <td>
-                        <input type="hidden" asp-for="Modules[i].ModuleId" />
-                    <td><input type="checkbox" asp-for="Modules[i].CanView" /></td>
-                    <td><input type="checkbox" asp-for="Modules[i].CanCreate" /></td>
-                    <td><input type="checkbox" asp-for="Modules[i].CanEdit" /></td>
-                    <td><input type="checkbox" asp-for="Modules[i].CanDelete" /></td>
+@section Breadcrumb {
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb mb-0">
+        <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Dashboard</a></li>
+        <li class="breadcrumb-item"><a asp-controller="Role" asp-action="Index">Roles</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Assign Modules</li>
+    </ol>
+</nav>
+}
 
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-    <button class="btn btn-primary" type="submit">Save</button>
-</form>
+<div class="card">
+    <div class="card-header">Assign Modules to @Model.RoleName</div>
+    <div class="card-body">
+        <form asp-action="AssignModules" method="post">
+            @Html.AntiForgeryToken()
+            <input type="hidden" asp-for="RoleId" />
+            <div class="table-responsive">
+                <table class="table table-striped mb-0">
+                    <thead>
+                        <tr>
+                            <th>Module</th>
+                            <th>View</th>
+                            <th>Create</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (int i = 0; i < Model.Modules.Count; i++)
+                        {
+                            <tr>
+                                <td>
+                                    @Model.Modules[i].ModuleName
+                                    <input type="hidden" asp-for="Modules[i].ModuleId" />
+                                </td>
+                                <td>
+                                    <input type="checkbox" asp-for="Modules[i].CanView" />
+                                </td>
+                                <td>
+                                    <input type="checkbox" asp-for="Modules[i].CanCreate" />
+                                </td>
+                                <td>
+                                    <input type="checkbox" asp-for="Modules[i].CanEdit" />
+                                </td>
+                                <td>
+                                    <input type="checkbox" asp-for="Modules[i].CanDelete" />
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div class="mt-3">
+                <button class="btn btn-primary" type="submit">Save</button>
+                <a asp-action="Index" class="btn btn-link">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>

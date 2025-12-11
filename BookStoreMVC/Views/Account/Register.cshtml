@@ -1,5 +1,14 @@
 ﻿@model BookStoreMVC.Models.RegistrationViewModel
 
+@section Breadcrumb {
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Dashboard</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Register</li>
+        </ol>
+    </nav>
+}
+
 <div class="row justify-content-center mt-5">
     <div class="col-md-5">
         <div class="card shadow">
@@ -7,6 +16,7 @@
                 <h3 class="card-title text-center mb-3">Register</h3>
 
                 <form asp-action="Register" method="post">
+                    @Html.AntiForgeryToken()
 
                     <div class="mb-3">
                         <label asp-for="FullName" class="form-label"></label>
@@ -63,3 +73,7 @@
         </div>
     </div>
 </div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

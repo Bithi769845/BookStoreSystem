@@ -1,89 +1,78 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - BookStoreMVC</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/BookStoreMVC.styles.css" asp-append-version="true" />
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <title>@ViewData["Title"] - BookStoreMVC</title>
+ <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+ <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+ <link rel="stylesheet" href="~/BookStoreMVC.styles.css" asp-append-version="true" />
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">BookStoreMVC</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="Books" asp-action="Index">Books</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="Authors" asp-action="Index">Authors</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="Categories" asp-action="Index">Categories</a>
-                        </li>
+ <div class="d-flex" style="min-height:100vh;">
+ @* Show sidebar only for authenticated users *@
+ @if (User?.Identity?.IsAuthenticated == true)
+ {
+ <aside class="bg-white border-end" style="width:240px;">
+ <div class="p-3">
+ <a class="navbar-brand d-flex align-items-center mb-3" asp-controller="Home" asp-action="Index">
+ <div style="width:36px;height:36px;background:linear-gradient(135deg,#2563eb,#4f46e5);border-radius:8px;margin-right:8px;"></div>
+ <div>
+ <strong>BookStore</strong>
+ <div class="text-muted-small">Admin Panel</div>
+ </div>
+ </a>
+ <hr />
+ <nav class="nav flex-column">
+ <a class="nav-link text-dark" asp-controller="Home" asp-action="Index">Dashboard</a>
+ <a class="nav-link text-dark" asp-controller="Books" asp-action="Index">Books</a>
+ <a class="nav-link text-dark" asp-controller="Authors" asp-action="Index">Authors</a>
+ <a class="nav-link text-dark" asp-controller="Categories" asp-action="Index">Categories</a>
+ <a class="nav-link text-dark" asp-controller="Module" asp-action="Index">Modules</a>
+ <a class="nav-link text-dark" asp-controller="Role" asp-action="Index">Roles</a>
+ <a class="nav-link text-dark" asp-controller="User" asp-action="Index">Users</a>
+ </nav>
+ </div>
+ </aside>
+ }
 
-                        @* Show admin links only to users in Admin role *@
-                        @if (User?.Identity?.IsAuthenticated == true && User.IsInRole("Admin"))
-                        {
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-controller="Role" asp-action="Index">Roles</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-controller="User" asp-action="Index">Users</a>
-                            </li>
-                        }
+ <div class="flex-grow-1 d-flex flex-column">
+ <header class="bg-white border-bottom">
+ <div class="container-fluid d-flex justify-content-between align-items-center py-2">
+ <div>
+ <!-- Breadcrumb placeholder -->
+ @RenderSection("Breadcrumb", required: false)
+ </div>
+ <div class="d-flex align-items-center">
+ @if (User?.Identity?.IsAuthenticated == true)
+ {
+ <div class="me-3 text-muted-small">@User.Identity.Name</div>
+ <form asp-controller="Account" asp-action="Logout" method="post" class="m-0">
+ @Html.AntiForgeryToken()
+ <button type="submit" class="btn btn-danger btn-sm d-flex align-items-center gap-2">
+<i class="bi bi-box-arrow-right"></i> Logout
+</button>
 
-                        @if (string.IsNullOrEmpty(Context.Session.GetString("JWToken")))
-                        {
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-controller="Account" asp-action="Login">Login</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-controller="Account" asp-action="Register">Register</a>
-                            </li>
-                        }
-                        else
-                        {
-                            <li class="nav-item d-flex align-items-center ">
-                                <form asp-controller="Account" asp-action="Logout" method="post" class="d-inline">
-                                    @Html.AntiForgeryToken()
-                                    <button type="submit" class="nav-link btn btn-link p-0 text-black">Logout</button>
-                                </form>
-                            </li>
-                        }
-                    </ul>
+ </form>
+ }
+ </div>
+ </div>
+ </header>
 
-                </div>
-            </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
-    @section Scripts {
-        <partial name="_ValidationScriptsPartial" />
-    }
+ <main class="container-fluid p-4 flex-grow-1">
+ @RenderBody()
+ </main>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2025 - BookStoreMVC - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+ <footer class="border-top text-center py-3 bg-white">
+ <div class="container">&copy;2025 - BookStoreMVC</div>
+ </footer>
+ </div>
+ </div>
+
+ <script src="~/lib/jquery/dist/jquery.min.js"></script>
+ <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+ <script src="~/js/site.js" asp-append-version="true"></script>
+ @RenderSection("Scripts", required: false)
 </body>
 </html>
